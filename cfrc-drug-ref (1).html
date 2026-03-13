@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CFRC Drugs">
+<meta name="theme-color" content="#0A2C5A">
+<title>CFRC Drug Reference</title>
+
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABP0lEQVR42uVXLReCMBR94yyZLPwAusmgna6RYPfgX+LQCUbW6RpIdJqFQqJiUDjPsaG4Dfx4bTuMe++77w0eAUHMFrsaDESVRYTfoyLg+XK7BzNR80QoBm+AyzQOTaAjYXVDgmBwHrgIEm3gtu8+ECnTOKyyiFiyAzrB+95HZOpNZgBngQ45ZCIsmDgmJ0BVCkmHRZZKFRdBolyo1rsVjdU7zAOHeZ3nZPuDCchUjmpBX5wvh1YxVg8AkG+OP9CGslQ31ti+2yrFvj9TP7gNTVzRyhbg7GDFr6jX1oaTZgDbIeqC//kY4crHHWGUwMfchKK+fzUL3/M/YPsuFEHSSfttLe55pZvQYd6J31uBBw57X22+Oa47FlRZRMo0Dg1OQ8IBpZkL6BC2usFbC+6LUUYz/t1kzOEUKxcSmGI8vwIoCKqZHqpn+QAAAABJRU5ErkJggg==">
+<link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsklEQVR42mNkgAIunaj/DESCb1eWMcLYjMiaX8/cR5QBoulOcIOYYJoFjPxSiXUBTC2XTtR/Ri6dqP8CRn6pH85tms1AAoDpYcEmie4VmJOxASZCms2kZjAobg5jYGBgYFDcHAZn4zSAVEDQgFPPMuC2MzAwMNz3XYXfAHz+JcsFA2+AmdQMFL8TFQuwcCAmPOB5QcDIL1WwkSOFWKff911l/u3KMka4C0hNyiguoCQ7AwCR6D2iJzDsZQAAAABJRU5ErkJggg==">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="manifest" id="manifest-placeholder">
+<script id="manifest-injector">
+(function(){
+  const icons = [
+    {src:"data:image/png;base64,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",sizes:"192x192",type:"image/png",purpose:"any maskable"},
+    {src:"data:image/png;base64,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",sizes:"512x512",type:"image/png",purpose:"any maskable"}
+  ];
+  const manifest = {
+    name:"CFRC Drug Reference",
+    short_name:"CFRC Drugs",
+    description:"CFHCS 340B B&B Infusion Drug J-Code & Medicare Payment Quick Reference",
+    start_url:".",
+    display:"standalone",
+    background_color:"#060F1E",
+    theme_color:"#0A2C5A",
+    orientation:"portrait",
+    icons
+  };
+  const blob = new Blob([JSON.stringify(manifest)], {type:'application/manifest+json'});
+  document.getElementById('manifest-placeholder').href = URL.createObjectURL(blob);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Inline SVG icon as data URI for apple-touch-icon -->
+<style>
+:root {
+  --navy:      #0A2C5A;
+  --navy-mid:  #0E3A72;
+  --blue:      #1A5EA8;
+  --accent:    #F5C518;
+  --accent2:   #2BDFB0;
+  --bg:        #060F1E;
+  --surface:   #0D1E35;
+  --surface2:  #132844;
+  --border:    #1E3A5F;
+  --text:      #E8EFF8;
+  --text-dim:  #7A9EC0;
+  --text-muted:#3D6080;
+  --red:       #FF5A6A;
+  --green:     #2BDFB0;
+  --mono:      'IBM Plex Mono', monospace;
+  --sans:      'IBM Plex Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  overflow: hidden;
+}
+
+/* ── LAYOUT ── */
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ── HEADER ── */
+header {
+  flex-shrink: 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: env(safe-area-inset-top, 0) 0 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px 10px;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  background: var(--navy-mid);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+.logo svg { width: 20px; height: 20px; }
+
+.header-text h1 {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.header-text p {
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: var(--mono);
+  margin-top: 1px;
+}
+
+/* ── SEARCH ── */
+.search-wrap {
+  padding: 0 16px 12px;
+  position: relative;
+}
+
+#search {
+  width: 100%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px; /* prevents iOS zoom */
+  padding: 11px 40px 11px 42px;
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+
+#search:focus { border-color: var(--accent); }
+#search::placeholder { color: var(--text-muted); font-size: 14px; }
+
+.search-icon {
+  position: absolute;
+  left: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--surface2);
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  color: var(--text-dim);
+  font-size: 14px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-btn.visible { display: flex; }
+
+/* ── FILTER PILLS ── */
+.filter-row {
+  display: flex;
+  gap: 6px;
+  padding: 0 16px 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filter-row::-webkit-scrollbar { display: none; }
+
+.pill {
+  flex-shrink: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.15s;
+  -webkit-appearance: none;
+}
+.pill.active { background: var(--navy); border-color: var(--accent); color: var(--accent); }
+
+/* ── COUNT BAR ── */
+.count-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 8px;
+}
+
+.count-text {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.count-num {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ── RESULTS LIST ── */
+#results {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 12px;
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+/* ── DRUG CARD ── */
+.drug-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.drug-card:active { border-color: var(--accent); background: var(--surface2); }
+.drug-card.supply { border-color: #2A1A1F; }
+
+.card-top {
+  padding: 12px 14px 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.jcode-badge {
+  flex-shrink: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 7px;
+  background: var(--navy);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin-top: 1px;
+  min-width: 52px;
+  text-align: center;
+}
+
+.jcode-badge.supply-badge {
+  background: #1A0A0E;
+  border-color: #3D1A22;
+  color: var(--text-muted);
+}
+
+.card-name {
+  flex: 1;
+  min-width: 0;
+}
+
+.drug-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.drug-mfr {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 2px;
+  letter-spacing: 0.03em;
+}
+
+/* ── STATS ROW ── */
+.stats-row {
+  display: flex;
+  border-top: 1px solid var(--border);
+}
+
+.stat {
+  flex: 1;
+  padding: 8px 10px;
+  border-right: 1px solid var(--border);
+  min-width: 0;
+}
+.stat:last-child { border-right: none; }
+
+.stat-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+
+.stat-val {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat-val.money { color: var(--accent2); }
+.stat-val.ndc   { font-size: 10px; letter-spacing: 0.02em; }
+
+/* ── EXPANDED DETAIL ── */
+.card-detail {
+  display: none;
+  padding: 0 14px 12px;
+  border-top: 1px solid var(--border);
+  background: var(--surface2);
+}
+
+.card-detail.open { display: block; }
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.detail-item { }
+
+.detail-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.detail-val {
+  font-size: 12px;
+  color: var(--text);
+  font-family: var(--mono);
+}
+
+.detail-val.wide { grid-column: span 2; font-size: 11px; color: var(--text-dim); font-family: var(--sans); }
+.detail-val.highlight { color: var(--accent2); }
+.detail-val.margin-pos { color: var(--green); }
+.detail-val.margin-neg { color: var(--red); }
+
+.expand-hint {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 4px 0 0;
+  letter-spacing: 0.04em;
+}
+
+/* ── EMPTY STATE ── */
+.empty {
+  text-align: center;
+  padding: 60px 30px;
+}
+
+.empty-icon { font-size: 40px; margin-bottom: 16px; opacity: 0.4; }
+
+.empty h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+.empty p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── SUPPLY TAG ── */
+.supply-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 8px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #1A0A0E;
+  color: #FF8A95;
+  border: 1px solid #3D1A22;
+  letter-spacing: 0.05em;
+  margin-top: 3px;
+}
+
+/* ── HIGHLIGHT ── */
+mark {
+  background: rgba(245, 197, 24, 0.3);
+  color: var(--accent);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* ── SCROLLBAR ── */
+#results::-webkit-scrollbar { width: 3px; }
+#results::-webkit-scrollbar-track { background: transparent; }
+#results::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/>
+          <path d="M9 12h6M12 9v6"/>
+        </svg>
+      </div>
+      <div class="header-text">
+        <h1>CFRC Drug Reference</h1>
+        <p>340B B&amp;B · J-Codes · Medicare Limits</p>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="search" type="search" placeholder="Search drug name, J-code, or NDC…" autocomplete="off" autocorrect="off" spellcheck="false">
+      <button class="clear-btn" id="clearBtn" aria-label="Clear">✕</button>
+    </div>
+    <div class="filter-row" id="filterRow">
+      <button class="pill active" data-filter="all">All (45)</button>
+      <button class="pill" data-filter="drug">Drugs Only</button>
+      <button class="pill" data-filter="supply">Supplies</button>
+    </div>
+    <div class="count-bar">
+      <span class="count-text">Showing <span class="count-num" id="countNum">45</span> results</span>
+      <span class="count-text" style="font-size:9px">Tap card to expand</span>
+    </div>
+  </header>
+
+  <div id="results"></div>
+</div>
+
+<script>
+const DRUGS = [
+  {ndc:"00003218713",jcode:"J0129",name:"ORENCIA 250 MG VIAL",mfr:"Bristol-Myers Squibb",pkg:"1 × 1 EA",jdesc:"Abatacept injection",billUnit:"10 MG",mgPkg:250,billUnits:25,aspLimit:44.769,aspPkg:1119.22,b340:475.05,margin:644.17,notes:"",supply:false},
+  {ndc:"50474071079",jcode:"J0717",name:"CIMZIA 2×200 MG/ML SYRINGE KIT",mfr:"UCB",pkg:"1 × 1 EA (2 syringes)",jdesc:"Certolizumab pegol inj 1mg",billUnit:"1 MG",mgPkg:400,billUnits:400,aspLimit:3.867,aspPkg:1546.80,b340:0.01,margin:1546.79,notes:"400 mg per kit (2 × 200 mg)",supply:false},
+  {ndc:"49401010101",jcode:"J0490",name:"BENLYSTA 120 MG VIAL",mfr:"GlaxoSmithKline",pkg:"1 × 1 EA",jdesc:"Belimumab injection",billUnit:"10 MG",mgPkg:120,billUnits:12,aspLimit:57.156,aspPkg:685.87,b340:481.82,margin:204.05,notes:"",supply:false},
+  {ndc:"57894035001",jcode:"J1602",name:"SIMPONI ARIA 50 MG/4 ML VIAL",mfr:"Johnson & Johnson",pkg:"1 × 4 ML",jdesc:"Golimumab for iv use 1mg",billUnit:"1 MG",mgPkg:50,billUnits:50,aspLimit:11.631,aspPkg:581.55,b340:289.92,margin:291.63,notes:"",supply:false},
+  {ndc:"00069080901",jcode:"Q5103",name:"INFLECTRA 100 MG VIAL",mfr:"Pfizer",pkg:"1 × 1 EA",jdesc:"Injection, inflectra",billUnit:"10 MG",mgPkg:100,billUnits:10,aspLimit:24.22,aspPkg:242.20,b340:163.26,margin:78.94,notes:"Infliximab biosimilar",supply:false},
+  {ndc:"78206016201",jcode:"Q5104",name:"RENFLEXIS 100 MG VIAL",mfr:"Organon",pkg:"1 × 1 EA",jdesc:"Injection, renflexis",billUnit:"10 MG",mgPkg:100,billUnits:10,aspLimit:27.754,aspPkg:277.54,b340:191.75,margin:85.79,notes:"Infliximab biosimilar",supply:false},
+  {ndc:"49401010201",jcode:"J0490",name:"BENLYSTA 400 MG VIAL",mfr:"GlaxoSmithKline",pkg:"1 × 1 EA",jdesc:"Belimumab injection",billUnit:"10 MG",mgPkg:400,billUnits:40,aspLimit:57.156,aspPkg:2286.24,b340:1601.83,margin:684.41,notes:"",supply:false},
+  {ndc:"57894003001",jcode:"J1745",name:"REMICADE 100 MG VIAL",mfr:"Johnson & Johnson",pkg:"1 × 1 EA",jdesc:"Infliximab not biosimil 10mg",billUnit:"10 MG",mgPkg:100,billUnits:10,aspLimit:32.423,aspPkg:324.23,b340:212.10,margin:112.13,notes:"Innovator infliximab",supply:false},
+  {ndc:"00944270006",jcode:"J1569",name:"GAMMAGARD LIQUID 10% (200 ML)",mfr:"Baxalta/Takeda",pkg:"1 × 200 ML",jdesc:"Gammagard liquid injection",billUnit:"500 MG",mgPkg:20000,billUnits:40,aspLimit:47.288,aspPkg:1891.52,b340:1322.58,margin:568.94,notes:"20,000 mg (100 mg/mL × 200 mL)",supply:false},
+  {ndc:"50242013501",jcode:"J3262",name:"ACTEMRA 80 MG/4 ML VIAL",mfr:"Genentech/Roche",pkg:"1 × 4 ML",jdesc:"Tocilizumab injection",billUnit:"1 MG",mgPkg:80,billUnits:80,aspLimit:5.609,aspPkg:448.72,b340:297.30,margin:151.42,notes:"",supply:false},
+  {ndc:"50242013701",jcode:"J3262",name:"ACTEMRA 400 MG/20 ML VIAL",mfr:"Genentech/Roche",pkg:"1 × 20 ML",jdesc:"Tocilizumab injection",billUnit:"1 MG",mgPkg:400,billUnits:400,aspLimit:5.609,aspPkg:2243.60,b340:1466.92,margin:776.68,notes:"",supply:false},
+  {ndc:"00069024901",jcode:"Q5119",name:"RUXIENCE 500 MG/50 ML VIAL",mfr:"Pfizer",pkg:"1 × 50 ML",jdesc:"Inj ruxience, 10 mg",billUnit:"10 MG",mgPkg:500,billUnits:50,aspLimit:13.27,aspPkg:663.50,b340:310.42,margin:353.08,notes:"Rituximab biosimilar",supply:false},
+  {ndc:"55513099802",jcode:"J3111",name:"EVENITY 210 MG DOSE-2 SYRINGES",mfr:"Amgen",pkg:"2 × 1.17 ML",jdesc:"Inj. romosozumab-aqqg 1 mg",billUnit:"1 MG",mgPkg:210,billUnits:210,aspLimit:12.109,aspPkg:2542.89,b340:1715.59,margin:827.30,notes:"210 mg per dose (2 × 105 mg)",supply:false},
+  {ndc:"00078116861",jcode:"J3247",name:"COSENTYX 125 MG/5 ML VIAL",mfr:"Novartis",pkg:"1 × 5 ML",jdesc:"Inj secukinumab intrav 1mg",billUnit:"1 MG",mgPkg:125,billUnits:125,aspLimit:18.073,aspPkg:2259.13,b340:1643.17,margin:615.96,notes:"IV formulation only",supply:false},
+  {ndc:"00310304000",jcode:"J0491",name:"SAPHNELO 300 MG/2 ML VIAL",mfr:"AstraZeneca",pkg:"1 × 2 ML",jdesc:"Inj anifrolumab-fnia 1mg",billUnit:"1 MG",mgPkg:300,billUnits:300,aspLimit:18.338,aspPkg:5501.40,b340:3996.27,margin:1505.13,notes:"",supply:false},
+  {ndc:"61314024063",jcode:"Q5136",name:"JUBBONTI 60 MG/ML SYRINGE",mfr:"Sandoz",pkg:"1 × 1 ML",jdesc:"Inj. denosumab-bbdz, 1 mg",billUnit:"1 MG",mgPkg:60,billUnits:60,aspLimit:28.23,aspPkg:1693.80,b340:561.45,margin:1132.35,notes:"Denosumab biosimilar (Prolia ref.)",supply:false},
+  {ndc:"00069023801",jcode:"Q5119",name:"RUXIENCE 100 MG/10 ML VIAL",mfr:"Pfizer",pkg:"1 × 10 ML",jdesc:"Inj ruxience, 10 mg",billUnit:"10 MG",mgPkg:100,billUnits:10,aspLimit:13.27,aspPkg:132.70,b340:62.08,margin:70.62,notes:"Rituximab biosimilar",supply:false},
+  {ndc:"55513071021",jcode:"J0897",name:"PROLIA 60 MG/ML SYRINGE",mfr:"Amgen",pkg:"1 × 1 ML",jdesc:"Denosumab injection",billUnit:"1 MG",mgPkg:60,billUnits:60,aspLimit:29.457,aspPkg:1767.42,b340:820.77,margin:946.65,notes:"Denosumab innovator",supply:false},
+  {ndc:"50242013601",jcode:"J3262",name:"ACTEMRA 200 MG/10 ML VIAL",mfr:"Genentech/Roche",pkg:"1 × 10 ML",jdesc:"Tocilizumab injection",billUnit:"1 MG",mgPkg:200,billUnits:200,aspLimit:5.609,aspPkg:1121.80,b340:733.14,margin:388.66,notes:"",supply:false},
+  {ndc:"65219059004",jcode:"Q5135",name:"TYENNE 80 MG/4 ML VIAL",mfr:"Fresenius Kabi",pkg:"1 × 4 ML",jdesc:"Inj, tyenne, 1 mg",billUnit:"1 MG",mgPkg:80,billUnits:80,aspLimit:4.194,aspPkg:335.52,b340:199.80,margin:135.72,notes:"Tocilizumab biosimilar",supply:false},
+  {ndc:"50242005306",jcode:"J9312",name:"RITUXAN 500 MG/50 ML VIAL",mfr:"Genentech/Roche",pkg:"1 × 50 ML",jdesc:"Inj., rituximab, 10 mg",billUnit:"10 MG",mgPkg:500,billUnits:50,aspLimit:74.765,aspPkg:3738.25,b340:2280.51,margin:1457.74,notes:"Innovator rituximab",supply:false},
+  {ndc:"00944270007",jcode:"J1569",name:"GAMMAGARD LIQUID 10% (300 ML)",mfr:"Baxalta/Takeda",pkg:"1 × 300 ML",jdesc:"Gammagard liquid injection",billUnit:"500 MG",mgPkg:30000,billUnits:60,aspLimit:47.288,aspPkg:2837.28,b340:1983.87,margin:853.41,notes:"30,000 mg (100 mg/mL × 300 mL)",supply:false},
+  {ndc:"65219059210",jcode:"Q5135",name:"TYENNE 200 MG/10 ML VIAL",mfr:"Fresenius Kabi",pkg:"1 × 10 ML",jdesc:"Inj, tyenne, 1 mg",billUnit:"1 MG",mgPkg:200,billUnits:200,aspLimit:4.194,aspPkg:838.80,b340:499.50,margin:339.30,notes:"Tocilizumab biosimilar",supply:false},
+  {ndc:"63323018550",jcode:"N/A",name:"WATER FOR INJECTION (25×50 ML)",mfr:"Fresenius Kabi USA",pkg:"25 × 50 ML",jdesc:"Diluent — no J-code",billUnit:"N/A",mgPkg:"N/A",billUnits:"N/A",aspLimit:null,aspPkg:null,b340:150.60,margin:null,notes:"Diluent/supply",supply:true},
+  {ndc:"50242005121",jcode:"J9312",name:"RITUXAN 100 MG/10 ML VIAL",mfr:"Genentech/Roche",pkg:"1 × 10 ML",jdesc:"Inj., rituximab, 10 mg",billUnit:"10 MG",mgPkg:100,billUnits:10,aspLimit:74.765,aspPkg:747.65,b340:457.93,margin:289.72,notes:"Innovator rituximab",supply:false},
+  {ndc:"63459010450",jcode:"Q5115",name:"TRUXIMA 500 MG/50 ML VIAL",mfr:"Teva",pkg:"1 × 50 ML",jdesc:"Inj truxima 10 mg",billUnit:"10 MG",mgPkg:500,billUnits:50,aspLimit:30.145,aspPkg:1507.25,b340:1136.86,margin:370.39,notes:"Rituximab biosimilar",supply:false},
+  {ndc:"00386000102",jcode:"N/A",name:"ETHYL CHLORIDE MIST SPY AER",mfr:"N/A",pkg:"1 × 116 ML",jdesc:"Supply — no J-code",billUnit:"N/A",mgPkg:"N/A",billUnits:"N/A",aspLimit:null,aspPkg:null,b340:null,margin:null,notes:"Non-drug supply",supply:true},
+  {ndc:"25021083082",jcode:"J3489",name:"ZOLEDRONIC ACID 5 MG/100 ML",mfr:"Sagent Pharmaceuticals",pkg:"1 × 100 ML",jdesc:"Zoledronic acid 1mg",billUnit:"1 MG",mgPkg:5,billUnits:5,aspLimit:5.082,aspPkg:25.41,b340:36.14,margin:-10.73,notes:"",supply:false},
+  {ndc:"00944270004",jcode:"J1569",name:"GAMMAGARD LIQUID 10% (50 ML)",mfr:"Baxalta/Takeda",pkg:"1 × 50 ML",jdesc:"Gammagard liquid injection",billUnit:"500 MG",mgPkg:5000,billUnits:10,aspLimit:47.288,aspPkg:472.88,b340:330.64,margin:142.24,notes:"5,000 mg (100 mg/mL × 50 mL)",supply:false},
+  {ndc:"67457079410",jcode:"J3489",name:"ZOLEDRONIC ACID 5 MG/100 ML",mfr:"Mylan Inc",pkg:"1 × 100 ML",jdesc:"Zoledronic acid 1mg",billUnit:"1 MG",mgPkg:5,billUnits:5,aspLimit:5.082,aspPkg:25.41,b340:39.87,margin:-14.46,notes:"",supply:false},
+  {ndc:"00386000111",jcode:"N/A",name:"ETHYL CHLORIDE MEDIUM STREAM",mfr:"N/A",pkg:"1 × 116 ML",jdesc:"Supply — no J-code",billUnit:"N/A",mgPkg:"N/A",billUnits:"N/A",aspLimit:null,aspPkg:null,b340:null,margin:null,notes:"Non-drug supply",supply:true},
+  {ndc:"00074501501",jcode:"J2327",name:"SKYRIZI 600 MG/10 ML VIAL",mfr:"AbbVie",pkg:"1 × 10 ML",jdesc:"Inj risankizumab-rzaa 1 mg",billUnit:"1 MG",mgPkg:600,billUnits:600,aspLimit:14.932,aspPkg:8959.20,b340:5638.69,margin:3320.51,notes:"",supply:false},
+  {ndc:"65219059420",jcode:"Q5135",name:"TYENNE 400 MG/20 ML VIAL",mfr:"Fresenius Kabi",pkg:"1 × 20 ML",jdesc:"Inj, tyenne, 1 mg",billUnit:"1 MG",mgPkg:400,billUnits:400,aspLimit:4.194,aspPkg:1677.60,b340:999.00,margin:678.60,notes:"Tocilizumab biosimilar",supply:false},
+  {ndc:"00409488710",jcode:"N/A",name:"WATER FOR INJECTION (25×10 ML)",mfr:"Hospira Inc",pkg:"25 × 10 ML",jdesc:"Diluent — no J-code",billUnit:"N/A",mgPkg:"N/A",billUnits:"N/A",aspLimit:null,aspPkg:null,b340:11.91,margin:null,notes:"Diluent/supply",supply:true},
+  {ndc:"00264780020",jcode:"J7050",name:"SODIUM CHLORIDE 0.9% 250 ML",mfr:"B. Braun Medical",pkg:"24 × 250 ML",jdesc:"Normal saline solution infus",billUnit:"250 CC",mgPkg:"N/A",billUnits:1,aspLimit:0.664,aspPkg:0.664,b340:7.28,margin:-6.62,notes:"Per bag; case = 24 bags",supply:false},
+  {ndc:"72266015201",jcode:"J3489",name:"ZOLEDRONIC ACID 5 MG/100 ML",mfr:"Fosun Pharma USA",pkg:"1 × 100 ML",jdesc:"Zoledronic acid 1mg",billUnit:"1 MG",mgPkg:5,billUnits:5,aspLimit:5.082,aspPkg:25.41,b340:47.37,margin:-21.96,notes:"",supply:false},
+  {ndc:"00009004722",jcode:"J2919",name:"SOLU-MEDROL 125 MG VIAL",mfr:"Pfizer Inc",pkg:"25 × 1 EA",jdesc:"Inj, methylpred sod succ 5mg",billUnit:"5 MG",mgPkg:125,billUnits:25,aspLimit:0.264,aspPkg:6.60,b340:44.24,margin:-37.64,notes:"125 mg = 25 billing units (per vial)",supply:false},
+  {ndc:"00009003928",jcode:"J2919",name:"SOLU-MEDROL 40 MG VIAL",mfr:"Pfizer Inc",pkg:"25 × 1 EA",jdesc:"Inj, methylpred sod succ 5mg",billUnit:"5 MG",mgPkg:40,billUnits:8,aspLimit:0.264,aspPkg:2.11,b340:22.78,margin:-20.67,notes:"40 mg = 8 billing units (per vial)",supply:false},
+  {ndc:"08290305109",jcode:"N/A",name:"BD NEEDLE PRECISION GLIDE 27G",mfr:"N/A",pkg:"1 × 100 CT",jdesc:"Supply — no J-code",billUnit:"N/A",mgPkg:"N/A",billUnits:"N/A",aspLimit:null,aspPkg:null,b340:null,margin:null,notes:"Non-drug supply",supply:true},
+  {ndc:"00054074287",jcode:"N/A",name:"ALBUTEROL HFA 90 MCG INHALER",mfr:"Hikma Pharmaceuticals",pkg:"1 × 6.7 GM",jdesc:"MDI — not billed as B&B infusion",billUnit:"N/A",mgPkg:"N/A",billUnits:"N/A",aspLimit:null,aspPkg:null,b340:6.66,margin:null,notes:"MDI inhaler; not a B&B infusion code",supply:true},
+  {ndc:"67777012119",jcode:"N/A",name:"ALCOHOL PREP PAD STERILE 100CT",mfr:"N/A",pkg:"1 × 100 CT",jdesc:"Supply — no J-code",billUnit:"N/A",mgPkg:"N/A",billUnits:"N/A",aspLimit:null,aspPkg:null,b340:null,margin:null,notes:"Non-drug supply",supply:true},
+  {ndc:"49401008847",jcode:"J0490",name:"BENLYSTA 200 MG/ML SYRINGE",mfr:"GlaxoSmithKline",pkg:"4 × 1 ML",jdesc:"Belimumab injection",billUnit:"10 MG",mgPkg:800,billUnits:80,aspLimit:57.156,aspPkg:4572.48,b340:3460.22,margin:1112.26,notes:"800 mg/pkg (4 × 200 mg); SQ admin",supply:false},
+  {ndc:"00078073461",jcode:"J0638",name:"ILARIS 150 MG/ML VIAL",mfr:"Novartis",pkg:"1 × 1 ML",jdesc:"Canakinumab injection",billUnit:"1 MG",mgPkg:150,billUnits:150,aspLimit:147.741,aspPkg:22161.15,b340:16107.28,margin:6053.87,notes:"",supply:false},
+  {ndc:"50474070062",jcode:"J0717",name:"CIMZIA 2×200 MG VIAL KIT",mfr:"UCB",pkg:"1 × 1 EA",jdesc:"Certolizumab pegol inj 1mg",billUnit:"1 MG",mgPkg:400,billUnits:400,aspLimit:3.867,aspPkg:1546.80,b340:1121.45,margin:425.35,notes:"400 mg per kit (2 × 200 mg)",supply:false},
+  {ndc:"08290305838",jcode:"N/A",name:"BD NEEDLE ECLIPSE 25×1-1/2 RB",mfr:"N/A",pkg:"1 × 100 CT",jdesc:"Supply — no J-code",billUnit:"N/A",mgPkg:"N/A",billUnits:"N/A",aspLimit:null,aspPkg:null,b340:null,margin:null,notes:"Non-drug supply",supply:true},
+];
+
+const fmt$ = v => v == null ? '—' : '$' + v.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+const fmt3 = v => v == null ? '—' : '$' + v.toLocaleString('en-US', {minimumFractionDigits:3, maximumFractionDigits:3});
+
+let currentFilter = 'all';
+let expandedIdx = null;
+
+function highlight(text, query) {
+  if (!query) return text;
+  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>');
+}
+
+function renderCards(filtered, query) {
+  const container = document.getElementById('results');
+  document.getElementById('countNum').textContent = filtered.length;
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">🔍</div>
+        <h3>No results found</h3>
+        <p>Try searching by drug name,<br>J-code, or NDC number.</p>
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = filtered.map(({drug, origIdx}) => {
+    const isExpanded = expandedIdx === origIdx;
+    const hl = t => highlight(String(t), query);
+    const marginClass = drug.margin > 0 ? 'margin-pos' : drug.margin < 0 ? 'margin-neg' : '';
+
+    return `
+    <div class="drug-card ${drug.supply ? 'supply' : ''}" data-idx="${origIdx}" onclick="toggleCard(${origIdx})">
+      <div class="card-top">
+        <div class="jcode-badge ${drug.supply ? 'supply-badge' : ''}">${hl(drug.jcode)}</div>
+        <div class="card-name">
+          <div class="drug-name">${hl(drug.name)}</div>
+          <div class="drug-mfr">${drug.mfr}${drug.supply ? ' <span class="supply-tag">NO J-CODE</span>' : ''}</div>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-label">NDC</div>
+          <div class="stat-val ndc">${hl(drug.ndc)}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Limit / Unit</div>
+          <div class="stat-val money">${drug.aspLimit != null ? fmt3(drug.aspLimit) : '—'}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Reimb / Pkg</div>
+          <div class="stat-val money">${fmt$(drug.aspPkg)}</div>
+        </div>
+      </div>
+      <div class="card-detail ${isExpanded ? 'open' : ''}">
+        <div class="detail-grid">
+          <div class="detail-item">
+            <div class="detail-label">Package</div>
+            <div class="detail-val">${drug.pkg}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Billing Unit</div>
+            <div class="detail-val">${drug.billUnit}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Drug MG / Pkg</div>
+            <div class="detail-val">${drug.mgPkg}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Bill Units / Pkg</div>
+            <div class="detail-val">${drug.billUnits}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">340B Price / Pkg</div>
+            <div class="detail-val highlight">${fmt$(drug.b340)}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">B&B Margin / Pkg</div>
+            <div class="detail-val ${marginClass}">${fmt$(drug.margin)}</div>
+          </div>
+          <div class="detail-item" style="grid-column:span 2">
+            <div class="detail-label">HCPCS Description</div>
+            <div class="detail-val" style="font-family:var(--sans);color:var(--text-dim);font-size:11px">${drug.jdesc}</div>
+          </div>
+          ${drug.notes ? `<div class="detail-item" style="grid-column:span 2"><div class="detail-label">Notes</div><div class="detail-val wide">${drug.notes}</div></div>` : ''}
+        </div>
+      </div>
+      <div class="expand-hint">${isExpanded ? '▲ collapse' : '▼ tap to expand'}</div>
+    </div>`;
+  }).join('');
+}
+
+function toggleCard(origIdx) {
+  expandedIdx = (expandedIdx === origIdx) ? null : origIdx;
+  doSearch();
+}
+
+function doSearch() {
+  const raw   = document.getElementById('search').value.trim().toLowerCase();
+  const clear = document.getElementById('clearBtn');
+  clear.classList.toggle('visible', raw.length > 0);
+
+  let filtered = DRUGS.map((drug, origIdx) => ({drug, origIdx}));
+
+  if (currentFilter === 'drug')   filtered = filtered.filter(({drug}) => !drug.supply);
+  if (currentFilter === 'supply') filtered = filtered.filter(({drug}) => drug.supply);
+
+  if (raw) {
+    filtered = filtered.filter(({drug}) =>
+      drug.name.toLowerCase().includes(raw)  ||
+      drug.jcode.toLowerCase().includes(raw) ||
+      drug.ndc.includes(raw)                 ||
+      drug.mfr.toLowerCase().includes(raw)   ||
+      drug.jdesc.toLowerCase().includes(raw)
+    );
+  }
+
+  renderCards(filtered, raw);
+}
+
+document.getElementById('search').addEventListener('input', doSearch);
+document.getElementById('clearBtn').addEventListener('click', () => {
+  document.getElementById('search').value = '';
+  doSearch();
+  document.getElementById('search').focus();
+});
+
+document.getElementById('filterRow').addEventListener('click', e => {
+  const pill = e.target.closest('.pill');
+  if (!pill) return;
+  currentFilter = pill.dataset.filter;
+  document.querySelectorAll('.pill').forEach(p => p.classList.toggle('active', p === pill));
+  expandedIdx = null;
+  doSearch();
+});
+
+// Initial render
+doSearch();
+</script>
+
+<!-- PWA Service Worker -->
+<script>
+if ('serviceWorker' in navigator) {
+  const sw = `
+    self.addEventListener('install', e => self.skipWaiting());
+    self.addEventListener('activate', e => self.clients.claim());
+    self.addEventListener('fetch', e => e.respondWith(caches.match(e.request).then(r => r || fetch(e.request))));
+  `;
+  const blob = new Blob([sw], {type: 'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob));
+}
+</script>
+</body>
+</html>
